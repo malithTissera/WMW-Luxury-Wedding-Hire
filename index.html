@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WMW Luxury Wedding Hire</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>WMW Luxury Wedding Hire</h1>
+    <p>Elegant rides for your special day</p>
+  </header>
+
+  <section id="fleet" class="fleet-section">
+    <h2>Our Wedding Car Fleet</h2>
+    <div class="fleet-grid">
+
+      <!-- BMW -->
+      <div class="car-card">
+        <h3>BMW 520i</h3>
+        <img src="https://www.bmw.com.my/content/dam/bmw/common/all-models/m-series/series-overview/bmw-m-series-seo-overview-ms-04.jpg" alt="BMW 520i" onclick="openGallery(1)" />
+      </div>
+
+      <!-- Mercedes -->
+      <div class="car-card">
+        <h3>Mercedes-Benz E-Class</h3>
+        <img src="https://autovista24.autovistagroup.com/wp-content/uploads/sites/5/2022/05/d662614-1024x640.jpg" alt="Mercedes E-Class" onclick="openGallery(2)" />
+      </div>
+
+      <!-- Audi -->
+      <div class="car-card">
+        <h3>Audi A6</h3>
+        <img src="https://hips.hearstapps.com/hmg-prod/images/original-13270-s7-2024-6701-66d8a83a30973.jpg?crop=0.647xw:0.458xh;0.122xw,0.247xh&resize=1200:*" alt="Audi A6" onclick="openGallery(3)" />
+      </div>
+
+      <!-- Jaguar -->
+      <div class="car-card">
+        <h3>Jaguar XF</h3>
+        <img src="https://media.drive.com.au/obj/tx_q:80,rs:auto:1200:675:1/driveau/upload/cms/uploads/tgvbn80fwpmr6tpgmnf8" alt="Jaguar XF" onclick="openGallery(4)" />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Modal Gallery -->
+  <div id="modal" class="modal">
+    <span class="close" onclick="closeGallery()">&times;</span>
+    <div class="modal-content" id="modal-content"></div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 WMW Luxury Wedding Hire</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

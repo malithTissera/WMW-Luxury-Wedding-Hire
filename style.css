@@ -1,0 +1,164 @@
+/* Reset & Base Layout */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', sans-serif;
+  background: #231F20; /* Dark Charcoal */
+  color: #EAEAEA; /* Light text */
+}
+
+/* Sticky footer */
+body {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
+}
+
+/* Header */
+header {
+  background-color: #8E793E;
+  color: #EAEAEA;
+  text-align: center;
+  padding: 2em 1em;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  color: #AD974F;
+}
+
+/* Fleet Section */
+.fleet-section {
+  padding: 3em 2em;
+  background: #2E2B2C;
+}
+
+.fleet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2em;
+  margin-top: 2em;
+}
+
+.car-card {
+  background: #2E2B2C;
+  color: #EAEAEA;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  padding: 1em;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.car-card img {
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.car-card img:hover {
+  transform: scale(1.03);
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background-color: rgba(0, 0, 0, 0.85);
+  white-space: nowrap;
+}
+
+.modal-content {
+  display: inline-flex;
+  gap: 10px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.modal-content img {
+  width: 90vw;
+  max-width: 400px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.close {
+  position: fixed;
+  top: 20px;
+  right: 35px;
+  color: #EAEAEA;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+
+/* Footer */
+footer {
+  background: #231F20;
+  color: #EAEAEA;
+  text-align: center;
+  padding: 1em;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  .fleet-section {
+    padding: 2em 1em;
+  }
+
+  .modal-content img {
+    width: 80vw;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.7em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  .car-card {
+    padding: 0.8em;
+  }
+
+  .modal-content img {
+    width: 95vw;
+  }
+}
