@@ -5,9 +5,6 @@ const imageSets = {
   2: [ // Audi A6 Red
     "images/Car/Audi A6 Red/Audi-A6-1.webp",
   ],
-  3: [ // Audi A6 White
-    "images/Car/Audi A6 White/Audi-A6-1.webp"
-  ],
   4: [ // BMW X5
     "images/Car/BMW X5/bmw-x5-1.webp"
   ],
