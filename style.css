@@ -20,15 +20,35 @@ footer {
 
 /* Header */
 header {
-  background-color: #8E793E;
-  color: #EAEAEA;
-  text-align: center;
+  background-color: #242223;
   padding: 2em 1em;
 }
 
-h1 {
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #AD974F;
+}
+
+.site-title h1 {
   margin: 0;
   font-size: 2.5em;
+  color: #8E793E;
+}
+
+.site-title p {
+  margin: 0.2em 0 0;
+  color: #EAEAEA;
 }
 
 h2 {
@@ -46,7 +66,8 @@ h2 {
 
 .fleet-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;   /* Center cards */
   gap: 2em;
   margin-top: 2em;
 }
@@ -59,13 +80,12 @@ h2 {
   padding: 1em;
   text-align: center;
   transition: transform 0.3s ease;
-}
-
-.car-description {
-  font-size: 0.95em;
-  color: #EAEAEA;
-  margin-top: 0.8em;
-  line-height: 1.4;
+  width: 300px;           /* Fixed width */
+  height: 420px;          /* Fixed height */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .car-card img {
@@ -73,13 +93,19 @@ h2 {
   cursor: pointer;
   transition: transform 0.3s ease;
   width: 100%;
-  height: auto;
-  max-width: 100%;
-  object-fit: cover;
+  height: 180px;           /* Fixed height */
+  object-fit: cover;       /* Maintain image aspect ratio inside fixed area */
 }
 
 .car-card img:hover {
   transform: scale(1.03);
+}
+
+.car-description {
+  font-size: 0.95em;
+  color: #EAEAEA;
+  margin-top: 0.8em;
+  line-height: 1.4;
 }
 
 /* Modal Styles */
@@ -124,6 +150,92 @@ h2 {
   z-index: 1001;
 }
 
+/* Contact Now button in header */
+.contact-button {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+}
+
+.btn {
+  background-color: #AD974F;         /* Jungle Green */
+  color: #231F20;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  background-color: #231F20;
+  color: #AD974F;                    
+  border: 2px solid #AD974F;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* WhatsApp floating button */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.whatsapp-float img {
+  width: 100%;
+  height: auto;
+}
+
+.intro-section, .contact-section {
+  background-color: #231F20;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.intro-section h2, .contact-section h2 {
+  color: #AD974F; /* Forest Green */
+}
+
+.intro-section p, .contact-section p {
+  color: #AD974F; /* Olive Green */
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1em;
+}
+
+.contact-options {
+  margin-top: 20px;
+}
+
+.contact-section p {
+  margin-bottom: 44px; /* Adds space between paragraph and buttons */
+}
+
+.contact-options .btn {
+  margin: 10px;
+  padding: 12px 25px;
+  border: 2px solid #AD974F; 
+  background-color: #AD974F;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  
+}
+
+.contact-options .btn:hover {
+  background-color: #231F20;
+  color: #AD974F;                    
+  border: 2px solid #AD974F;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
 
 /* Footer */
 footer {
@@ -133,9 +245,9 @@ footer {
   padding: 1em;
 }
 
-/* Responsive Typography */
+/* Responsive Typography & Layout */
 @media (max-width: 768px) {
-  h1 {
+  .site-title h1 {
     font-size: 2em;
   }
 
@@ -153,7 +265,12 @@ footer {
 }
 
 @media (max-width: 480px) {
-  h1 {
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .site-title h1 {
     font-size: 1.7em;
   }
 
