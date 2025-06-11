@@ -1,17 +1,22 @@
 /* Reset & Base Layout */
+html {
+  scroll-behavior: smooth;
+}
+
 html, body {
   height: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
   font-family: 'Segoe UI', sans-serif;
-  background: #231F20; /* Dark Charcoal */
-  color: #EAEAEA; /* Light text */
+  background: #231F20;
+  color: #EAEAEA;
 }
 
 /* Sticky footer */
 body {
   flex: 1;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 footer {
@@ -22,6 +27,7 @@ footer {
 header {
   background-color: #242223;
   padding: 2em 1em;
+  position: relative;
 }
 
 .header-container {
@@ -58,35 +64,89 @@ h2 {
   color: #AD974F;
 }
 
+/* Intro Section */
+.intro-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-image: url(images/Logo/Wallpaper.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.intro-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: rgba(35, 31, 32, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.no-bullets {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px auto;
+  display: inline-block;
+  text-align: left;
+}
+
+.no-bullets li {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  padding: 5px 0;
+}
+
+/* Animations for sections */
+section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Fleet Section */
 .fleet-section {
   padding: 3em 2em;
   background: #2E2B2C;
   background-image: url(images/Logo/Wallpaper.png);
+  background-size: cover;
+  background-position: center;
 }
 
 .fleet-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  justify-items: center;   /* Center cards */
+  justify-items: center;
   gap: 2em;
   margin-top: 2em;
 }
 
 .car-card {
-  background: #2E2B2C;
+  background: rgba(46, 43, 44, 0.9);
   color: #EAEAEA;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   padding: 1em;
   text-align: center;
-  transition: transform 0.3s ease;
-  width: 300px;           /* Fixed width */
-  height: 420px;          /* Fixed height */
+  transition: all 0.3s ease;
+  width: 300px;
+  height: 420px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  opacity: 0;
+  transform: translateY(20px);
+  border: 1px solid #AD974F;
+}
+
+.car-card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .car-card img {
@@ -94,8 +154,14 @@ h2 {
   cursor: pointer;
   transition: transform 0.3s ease;
   width: 100%;
-  height: 180px;           /* Fixed height */
-  object-fit: cover;       /* Maintain image aspect ratio inside fixed area */
+  height: 180px;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.3s ease;
+}
+
+.car-card.visible img {
+  opacity: 1;
 }
 
 .car-card img:hover {
@@ -109,55 +175,110 @@ h2 {
   line-height: 1.4;
 }
 
+/* Contact Section */
+.contact-section {
+  background-color: #2E2B2C;
+  background-image: url(images/Logo/Wallpaper.png);
+  background-size: cover;
+  background-position: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  color: #AD974F; 
+}
+
+.contact-section p {
+  color: white; 
+  max-width: 800px;
+  margin: 0 auto 44px;
+  font-size: 1.1em;
+  background-color: rgba(35, 31, 32, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.contact-options {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.contact-options .btn {
+  padding: 12px 25px;
+  border: 2px solid #AD974F; 
+  background-color: #AD974F;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  min-width: 150px;
+  text-align: center;
+}
+
+.contact-options .btn:hover {
+  background-color: #231F20;
+  color: #AD974F;                    
+  border: 2px solid #AD974F;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
 /* Modal Styles */
 .modal {
   display: none;
   position: fixed;
-  z-index: 999;
-  padding-top: 60px;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  background-color: rgba(0, 0, 0, 0.85);
-  white-space: nowrap;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow: auto;
 }
 
 .modal-content {
-  display: inline-flex;
-  gap: 10px;
-  padding: 20px;
-  overflow-x: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px 20px;
+  gap: 20px;
 }
 
 .modal-content img {
-  width: 90vw;
-  max-width: 400px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 10px;
+  max-width: 90%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  margin-bottom: 20px;
+}
+
+.modal-content img:hover {
+  transform: scale(1.02);
 }
 
 .close {
   position: fixed;
   top: 20px;
-  right: 35px;
-  color: #EAEAEA;
+  right: 30px;
+  color: #f1f1f1;
   font-size: 40px;
   font-weight: bold;
+  transition: 0.3s;
   cursor: pointer;
-  z-index: 1001;
-  background: transparent;
+  background: none;
   border: none;
-  outline: none;
-  padding: 0;
-  line-height: 1;
+  z-index: 1001;
 }
 
 .close:hover {
   color: #AD974F;
+  transform: rotate(90deg);
 }
 
 /* Contact Now button in header */
@@ -168,7 +289,7 @@ h2 {
 }
 
 .btn {
-  background-color: #AD974F;         /* Jungle Green */
+  background-color: #AD974F;
   color: #231F20;
   padding: 10px 20px;
   border-radius: 8px;
@@ -177,6 +298,7 @@ h2 {
   border: 2px solid transparent;
   transition: all 0.3s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: inline-block;
 }
 
 .btn:hover {
@@ -195,6 +317,11 @@ h2 {
   right: 20px;
   z-index: 100;
   cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
 }
 
 .whatsapp-float img {
@@ -202,58 +329,13 @@ h2 {
   height: auto;
 }
 
-.intro-section, .contact-section {
-  background-color: #2E2B2C;
-  background-image: url(images/Logo/Wallpaper.png);
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.intro-section h2, .contact-section h2 {
-  color: #AD974F; 
-}
-
-.intro-section p, .contact-section p {
-  color: white; 
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 1.1em;
-}
-
-.contact-options {
-  margin-top: 20px;
-}
-
-.contact-section p {
-  margin-bottom: 44px; /* Adds space between paragraph and buttons */
-}
-
-.contact-options .btn {
-  margin: 10px;
-  padding: 12px 25px;
-  border: 2px solid #AD974F; 
-  background-color: #AD974F;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  
-}
-
-.contact-options .btn:hover {
-  background-color: #231F20;
-  color: #AD974F;                    
-  border: 2px solid #AD974F;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-}
-
-
 /* Footer */
 footer {
   background: #231F20;
   color: #EAEAEA;
   text-align: center;
-  padding: 1em;
+  padding: 1.5em;
+  border-top: 1px solid #AD974F;
 }
 
 /* Responsive Typography & Layout */
@@ -270,8 +352,15 @@ footer {
     padding: 2em 1em;
   }
 
-  .modal-content img {
-    width: 80vw;
+  .header-container {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .contact-button {
+    position: static;
+    margin-top: 1em;
+    text-align: center;
   }
 }
 
@@ -290,10 +379,21 @@ footer {
   }
 
   .car-card {
+    width: 100%;
+    height: auto;
     padding: 0.8em;
   }
 
-  .modal-content img {
-    width: 95vw;
+  .intro-content, .contact-section p {
+    padding: 15px;
+  }
+
+  .contact-options {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-options .btn {
+    width: 100%;
   }
 }
