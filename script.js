@@ -8,15 +8,15 @@ function openGallery(carId) {
   
   // Corrected image mappings with multiple images per car
   const imageMap = {
-    1: ['bmw-520i-1.webp', 'bmw-520i-2.webp', 'bmw-520i-3.webp'],
-    2: ['Audi-A6-1.webp', 'Audi-A6-2.webp', 'Audi-A6-3.webp'],
-    3: ['bmw-x5-1.webp', 'bmw-x5-2.webp', 'bmw-x5-3.webp'],
-    4: ['toyota-prius-1.webp', 'toyota-prius-2.webp'],
-    5: ['toyota-axio-1.webp', 'toyota-axio-2.webp'],
-    6: ['toyota-allion-1.webp', 'toyota-allion-2.webp'],
-    7: ['toyota-premio-1.webp', 'toyota-premio-2.webp'],
-    8: ['honda-vesel-1.webp', 'honda-vesel-2.webp'],
-    9: ['honda-vesel-red-1.webp', 'honda-vesel-red-2.webp']
+    1: ['bmw-520i-1.webp'],
+    2: ['Audi-A6-1.webp'],
+    3: ['bmw-x5-1.webp'],
+    4: ['toyota-prius-1.webp'],
+    5: ['toyota-axio-1.webp'],
+    6: ['toyota-allion-1.webp'],
+    7: ['toyota-premio-1.webp'],
+    8: ['honda-vesel-1.webp'],
+    9: ['honda-vesel-1.webp']
   };
 
   const folderMap = {
